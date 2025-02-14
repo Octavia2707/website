@@ -65,7 +65,7 @@ const Katalog = () => {
           <p className="text-lg text-[#CE5A67] mb-4">{items[currentIndex]?.description || "Loading description..."}</p>
           <div className="flex flex-col gap-2">
             <div className="px-6 py-2 rounded-full text-lg font-semibold bg-[#F4BF97] text-[#FCF5ED]">Flower</div>
-            <div className="px-6 py-2 rounded-full text-lg font-semibold bg-[#FAF3EB] text-[#F4BF97]">Cellophane Paper</div>
+            <div className="px-6 py-2 rounded-full text-lg font-semibold bg-[#FAF3EB] text-[#F4BF97]">Cellophone Paper</div>
             <div className="px-6 py-2 rounded-full text-lg font-semibold bg-[#FCE8DD] text-[#CE5A67]">Ribbon</div>
           </div>
         </div>
