@@ -136,7 +136,7 @@ const Admin = () => {
                 className="w-full h-48 object-cover rounded-lg"
               />
             </div>
-          ))}
+          ))} 
         </div>
       </div>
     );
@@ -146,50 +146,53 @@ const Admin = () => {
     <div className="bg-[#FCF5ED] min-h-screen flex flex-col items-center p-8 relative">
       {/* Add Testimonial Section */}
       <div className="mt-12 w-full flex flex-col items-start">
-        <h2 className="text-xl font-bold font-Judson text-black mb-4">Add Testimoni</h2>
-        <div className="flex items-center space-x-4">
-          <input
-            type="file"
-            accept="image/*"
-            className="border-2 border-[#BBBBBB] rounded-lg px-4 py-2 mb-4 w-64"
-            onChange={(e) => {
-              const file = e.target.files[0];
-              if (file) {
-                const reader = new FileReader();
-                reader.onloadend = () => setImageUrl(reader.result);
-                reader.readAsDataURL(file);
-              }
-            }}
-          />
-          <button
-            className="bg-[#CE5A67] font-Judson text-white px-4 py-2 rounded-lg"
-            onClick={handleAddTestimonial}
-          >
-            Add Testimonial
-          </button>
-        </div>
-
-        <div className="mt-12">
-          <h2 className="text-xl font-bold font-Judson text-black mb-4">Testimonial List</h2>
-          <div className="grid grid-cols-3 gap-4">
-            {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-white p-4 rounded-lg shadow-md">
-                <img
-                  src={testimonial.imageUrl}
-                  alt="Testimonial"
-                  className="w-full h-48 object-cover rounded-lg"
+              <h2 className="text-xl font-bold font-Judson text-black mb-4">Add Testimoni</h2>
+              <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4 w-full">
+                <input
+                  type="file"
+                  accept="image/*"
+                  className="border-2 border-[#BBBBBB] rounded-lg px-4 py-2 w-full sm:w-64"
+                  onChange={(e) => {
+                    const file = e.target.files[0];
+                    if (file) {
+                      const reader = new FileReader();
+                      reader.onloadend = () => setImageUrl(reader.result);
+                      reader.readAsDataURL(file);
+                    }
+                  }}
                 />
                 <button
-                  className="mt-2 bg-red-500 text-white px-4 py-1 rounded-lg"
-                  onClick={() => handleDeleteTestimonial(testimonial.id)}
+                  className="bg-[#CE5A67] font-Judson text-white px-4 py-2 rounded-lg w-full sm:w-auto"
+                  onClick={handleAddTestimonial}
                 >
-                  Delete
+                  Add Testimonial
                 </button>
               </div>
-            ))}
-          </div>
+            </div>
+
+            {/* Testimonial List */}
+            <div className="mt-12 w-full">
+             <h2 className="text-xl font-bold font-Judson text-black mb-4">Testimonial List</h2>
+             <div className="overflow-x-auto">
+             <div className="flex space-x-4">
+              {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="bg-white p-4 rounded-lg shadow-md w-80 flex-shrink-0">
+              <img
+               src={testimonial.imageUrl}
+               alt="Testimonial"
+               className="w-full h-48 object-cover rounded-lg"
+              />
+           <button
+            className="mt-2 bg-red-500 text-white px-4 py-1 rounded-lg w-full"
+            onClick={() => handleDeleteTestimonial(testimonial.id)}
+          >
+            Delete
+          </button>
         </div>
-      </div>
+      ))}
+    </div>
+  </div>
+</div>
 
       {/* Add Item Section */}
       <div className="mt-12 w-full flex flex-col items-start">
@@ -234,31 +237,32 @@ const Admin = () => {
           Add Item
         </button>
 
-        <div className="mt-12">
-          <h2 className="text-xl font-bold font-Judson text-black mb-4">Item List</h2>
-          <div className="grid grid-cols-3 gap-4">
-            {items.map((item) => (
-              <div key={item.id} className="bg-white p-4 rounded-lg shadow-md">
-                <img
-                  src={item.imageUrl}
-                  alt="Item"
-                  className="w-full h-48 object-cover rounded-lg"
-                />
-                <h3 className="text-lg font-semibold mt-2">{item.packageName}</h3>
-                <p className="text-sm text-gray-600">{item.description}</p>
-                <p className="text-sm font-bold mt-2">{item.price}</p>
-                <button
-                  className="mt-2 bg-red-500 text-white px-4 py-1 rounded-lg"
-                  onClick={() => handleDeleteItem(item.id)}
-                >
-                  Delete
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
+        
+        <h2 className="text-xl font-bold text-black mt-8 mb-4">Item List</h2>
+<div className="overflow-x-auto w-full">
+  <div className="flex space-x-4 p-2 w-max">
+    {items.map((item) => (
+      <div key={item.id} className="bg-white p-4 rounded-lg shadow-md w-64 flex-shrink-0">
+        <img
+          src={item.imageUrl}
+          alt="Item"
+          className="w-full h-48 object-cover rounded-lg"
+        />
+        <h3 className="text-lg font-semibold mt-2">{item.packageName}</h3>
+        <p className="text-sm text-gray-600">{item.description}</p>
+        <p className="text-sm font-bold mt-2">{item.price}</p>
+        <button
+          className="mt-2 bg-red-500 text-white px-4 py-1 rounded-lg w-full"
+          onClick={() => handleDeleteItem(item.id)}
+        >
+          Delete
+        </button>
       </div>
-    </div>
+    ))}
+  </div>
+  </div>
+  </div>
+  </div>
   );
 };
 

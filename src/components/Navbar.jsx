@@ -31,9 +31,9 @@ const Navbar = () => {
     <nav className="absolute top-0 left-0 w-full bg-transparent z-50 ">
       {/* Hamburger Menu */}
       <div className="flex justify-between items-center py-4 px-6 lg:hidden">
-        <h1 className="text-white font-Judson text-2xl">AKO.DEFLEUR</h1>
+        <h1 className="text-black font-Judson text-2xl">AKO.DEFLEUR</h1>
         <button
-          className="text-white text-3xl focus:outline-none"
+          className="text-black text-3xl focus:outline-none"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           &#9776; {/* Icon garis tiga */}
